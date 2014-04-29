@@ -1,4 +1,4 @@
-LabBot
+Lab Dice
 ======
 
-The LabBot framework for controlling experiments and collecting data.
+An OS X utility for randomising subjects into experimental groups.
