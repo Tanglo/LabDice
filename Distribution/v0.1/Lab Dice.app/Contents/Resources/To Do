@@ -1,4 +1,0 @@
- - Print the output of the NSTableView.
-     - This seems to need me to generate a NSView from the data to be printed and print that.
-      - NSTableView only prints what is visible.
-      - Can I do this by nesting the NSTableView in an NSView and printing that?
