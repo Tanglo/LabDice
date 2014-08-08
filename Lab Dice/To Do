@@ -1,3 +1,2 @@
- - Fix bug that crashs when pressing the print button or cmd-P when textfieldcells are selected
-
- - Does not print data for last block if Groups >0
+ - Implement printing
+ - Implement saving?

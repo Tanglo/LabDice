@@ -25,13 +25,6 @@
 @property NSInteger numGroups;
 @property NSInteger numSubjects;
 
-/*
-#pragma mark dataSource methods
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex;
-- (void)tableView:(NSTableView *)aTableView setObjectValue:(NSMutableString *) newEntry forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex;
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
- */
-
 #pragma Getters
 -(NSMutableArray *)resultsArray;
 
