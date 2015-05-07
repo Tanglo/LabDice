@@ -1,2 +1,5 @@
- - Implement printing
+- Add a repetition function
+    - So blocks can be repeated multiple times in a shuffled order
+    - e.g. 1,1,2,2,1,1,2,1,2,1,2,2
+
  - Implement saving?

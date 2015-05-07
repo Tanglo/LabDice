@@ -28,6 +28,8 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    [results rollDice];
+    
     // Drawing code here.
     CGFloat textSize = 12;
 	NSMutableDictionary* font_attributes = [NSMutableDictionary new];
