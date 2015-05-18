@@ -14,6 +14,7 @@
     IBOutlet DRHResultsView *resultsView;
     IBOutlet NSTextField *numBlocksField;
     IBOutlet NSTextField *numSubjectsField;
+    IBOutlet NSTextField *numRepetitionsField;
     
     NSInteger numBlocks;
     NSInteger numGroups;
@@ -24,6 +25,7 @@
 @property NSInteger numBlocks;
 @property NSInteger numGroups;
 @property NSInteger numSubjects;
+@property NSInteger numRepetitions;
 
 #pragma Getters
 -(NSMutableArray *)resultsArray;

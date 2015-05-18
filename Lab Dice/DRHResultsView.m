@@ -40,7 +40,7 @@
     cellSize = [cellText sizeWithAttributes:font_attributes];
     cellSize.width += 2*CELLPADDING;
     cellSize.height += 2*ROWPADDING;
-    NSSize tableSize = NSMakeSize(([results numBlocks] + ([results numGroups]>1) +1) * cellSize.width, ([results numSubjects]+1) * cellSize.height);
+    NSSize tableSize = NSMakeSize(([results numBlocks] + ([results numGroups]>1) +1) * [results numRepetitions] * cellSize.width, ([results numSubjects]+1) * cellSize.height);
     [self setFrame:NSMakeRect(0.0, 0.0, tableSize.width+2*MARGIN, tableSize.height+2*MARGIN)];
     
     //Draw table background

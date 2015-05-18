@@ -12,7 +12,7 @@
 
 @implementation DRHDiceResults
 
-@synthesize numBlocks,numGroups, numSubjects;
+@synthesize numBlocks,numGroups, numSubjects, numRepetitions;
 
 - (id)init {
     self = [super init];
@@ -21,6 +21,7 @@
         numBlocks = 0;
         numGroups = 1;
         numSubjects = 0;
+        numRepetitions = 1;
         
         resultsArray = [NSMutableArray array];
     }
@@ -67,6 +68,15 @@
         if (groupArray)
             [newSubjArray insertObject:[DRHResultCell resultCellWithValue:[[groupArray objectAtIndex:i] integerValue]] atIndex:0];
         [resultsArray addObject:newSubjArray];
+    }
+    if (numRepetitions > 1) {
+        NSMutableArray *repeatedArray = [NSMutableArray array];
+        NSLog(@"Results count: %ld",[resultsArray count]);
+        for (NSInteger i=0; i<numRepetitions; i++) {
+            [repeatedArray addObjectsFromArray:resultsArray];
+        }
+        resultsArray = repeatedArray;
+        NSLog(@"Results count: %ld",[resultsArray count]);
     }
 }
 

@@ -128,6 +128,7 @@
 			buildConfigurationList = 9BD35AAC17EB3C4400C80701 /* Build configuration list for PBXNativeTarget "Lab Dice" */;
 			buildPhases = (
 				9BD35A8A17EB3C4400C80701 /* Sources */,
+				E533670D1B09C2E500B0FC0F /* ShellScript */,
 				9BD35A8B17EB3C4400C80701 /* Frameworks */,
 				9BD35A8C17EB3C4400C80701 /* Resources */,
 			);
@@ -180,6 +181,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E533670D1B09C2E500B0FC0F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BD35A8A17EB3C4400C80701 /* Sources */ = {
