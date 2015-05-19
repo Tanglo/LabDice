@@ -59,24 +59,17 @@
     }
     for (NSInteger i=0; i<numSubjects; i++) {
         NSMutableArray *newSubjArray = [NSMutableArray array];
-        for (NSInteger j=0; j<numBlocks; j++) {
-            [newSubjArray addObject:[DRHResultCell resultCellWithValue:j+1]];
-            NSSortDescriptor *orderDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
-            NSArray *sortDescriptors = @[orderDescriptor];
-            [newSubjArray sortUsingDescriptors:sortDescriptors];
+        for (NSInteger k=0; k<numRepetitions; k++) {
+            for (NSInteger j=0; j<numBlocks; j++) {
+                [newSubjArray addObject:[DRHResultCell resultCellWithValue:j+1]];
+                NSSortDescriptor *orderDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+                NSArray *sortDescriptors = @[orderDescriptor];
+                [newSubjArray sortUsingDescriptors:sortDescriptors];
+            }
         }
         if (groupArray)
             [newSubjArray insertObject:[DRHResultCell resultCellWithValue:[[groupArray objectAtIndex:i] integerValue]] atIndex:0];
         [resultsArray addObject:newSubjArray];
-    }
-    if (numRepetitions > 1) {
-        NSMutableArray *repeatedArray = [NSMutableArray array];
-        NSLog(@"Results count: %ld",[resultsArray count]);
-        for (NSInteger i=0; i<numRepetitions; i++) {
-            [repeatedArray addObjectsFromArray:resultsArray];
-        }
-        resultsArray = repeatedArray;
-        NSLog(@"Results count: %ld",[resultsArray count]);
     }
 }
 

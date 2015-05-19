@@ -27,9 +27,7 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect
-{
-    [results rollDice];
-    
+{   
     // Drawing code here.
     CGFloat textSize = 12;
 	NSMutableDictionary* font_attributes = [NSMutableDictionary new];
@@ -40,7 +38,7 @@
     cellSize = [cellText sizeWithAttributes:font_attributes];
     cellSize.width += 2*CELLPADDING;
     cellSize.height += 2*ROWPADDING;
-    NSSize tableSize = NSMakeSize(([results numBlocks] + ([results numGroups]>1) +1) * [results numRepetitions] * cellSize.width, ([results numSubjects]+1) * cellSize.height);
+    NSSize tableSize = NSMakeSize(([results numBlocks] * [results numRepetitions] + ([results numGroups]>1) +1) * cellSize.width, ([results numSubjects]+1) * cellSize.height);
     [self setFrame:NSMakeRect(0.0, 0.0, tableSize.width+2*MARGIN, tableSize.height+2*MARGIN)];
     
     //Draw table background
@@ -56,7 +54,8 @@
         cellText = [NSString stringWithFormat:@"Group"];
         [cellText drawAtPoint:rowPosition withAttributes:font_attributes];
     }
-    for (NSInteger i=0; i<[results numBlocks]; i++) {
+    NSInteger totalBlocks = [results numBlocks] * [results numRepetitions];
+    for (NSInteger i=0; i<totalBlocks; i++) {
         rowPosition.x += cellSize.width;
         cellText = [NSString stringWithFormat:@"Block %ld",i+1];
         [cellText drawAtPoint:rowPosition withAttributes:font_attributes];
@@ -78,7 +77,7 @@
     for (NSInteger i=0; i<[results numSubjects]; i++) {
         cellText = [NSString stringWithFormat:@"%ld.",i+1];
         [cellText drawAtPoint:rowPosition withAttributes:font_attributes];
-        NSInteger totalCells = [results numBlocks] + ([results numGroups] > 1);
+        NSInteger totalCells = [results numBlocks] * [results numRepetitions] + ([results numGroups] > 1);
         for (NSInteger j=0; j<totalCells; j++) {
             cellText = [NSString stringWithFormat:@"%ld",[[[[[results resultsArray] objectAtIndex:i] objectAtIndex:j] value] integerValue]];
             [cellText drawAtPoint:NSMakePoint(rowPosition.x+(j+1)*cellSize.width, rowPosition.y) withAttributes:font_attributes];

@@ -1,4 +1,8 @@
-- Add a repetition function
-    - Draw repeated data in DRHResultsView.
+- Stop crashing when changing values in fields
+    - The results view tries to draw, but the dice have not been rolled.
+    - Maybe use notifications to detect when values change
+                        OR
+    - Maybe check in ResultsView if results are ready to draw.
+    - Both?
 
  - Implement saving?
