@@ -144,7 +144,6 @@
     pageRect.size.height = rowsPerPage * cellSize.height;
     pageRect.origin.x = pageCol * columnsPerPage * cellSize.width + (pageCol>0)*MARGIN;
     pageRect.origin.y = pageRow * rowsPerPage *cellSize.height + (pageRow>0)*MARGIN;
-    NSLog(@"pageRect: %lf, %lf, %lf, %lf",pageRect.origin.x,pageRect.origin.y,pageRect.size.width,pageRect.size.height);
     return pageRect;
 }
 
