@@ -12,9 +12,6 @@
 
 @interface DRHDiceResults : NSObject {
     IBOutlet DRHResultsView *resultsView;
-    IBOutlet NSTextField *numBlocksField;
-    IBOutlet NSTextField *numSubjectsField;
-    IBOutlet NSTextField *numRepetitionsField;
     
     NSInteger numBlocks;
     NSInteger numGroups;
@@ -27,14 +24,14 @@
 @property NSInteger numSubjects;
 @property NSInteger numRepetitions;
 
-#pragma Getters
+#pragma mark Getters
 -(NSMutableArray *)resultsArray;
 
-#pragma Rolling
+#pragma mark Rolling
 -(IBAction)roll:(id)sender;
 -(void)rollDice;
 
-#pragma Printing
+#pragma mark Printing
 -(IBAction)print:(id)sender;
 
 @end

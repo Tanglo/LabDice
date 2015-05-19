@@ -24,8 +24,26 @@
         numRepetitions = 1;
         
         resultsArray = [NSMutableArray array];
+        
+        [self addObserver:self forKeyPath:@"numBlocks" options:nil context:nil];
+        [self addObserver:self forKeyPath:@"numGroups" options:nil context:nil];
+        [self addObserver:self forKeyPath:@"numSubjects" options:nil context:nil];
+        [self addObserver:self forKeyPath:@"numRepetitions" options:nil context:nil];
+        
     }
     return self;
+}
+
+-(void)dealloc{
+    [self removeObserver:self forKeyPath:@"numBlocks"];
+    [self removeObserver:self forKeyPath:@"numGroups"];
+    [self removeObserver:self forKeyPath:@"numSubjects"];
+    [self removeObserver:self forKeyPath:@"numRepetitions"];
+}
+
+#pragma mark Tracking changes
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    [self rollDice];
 }
 
 #pragma Getters

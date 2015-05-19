@@ -17,7 +17,7 @@
     NSSize cellSize;
     
     //Printing
-    NSRect pageRect;    //do I need this?
+//    NSRect pageRect;    //do I need this?
     NSInteger rowsPerPage;
     NSInteger columnsPerPage;
     NSInteger pagesLong;

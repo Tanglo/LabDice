@@ -78,11 +78,11 @@
         cellText = [NSString stringWithFormat:@"%ld.",i+1];
         [cellText drawAtPoint:rowPosition withAttributes:font_attributes];
         NSInteger totalCells = [results numBlocks] * [results numRepetitions] + ([results numGroups] > 1);
-        for (NSInteger j=0; j<totalCells; j++) {
-            cellText = [NSString stringWithFormat:@"%ld",[[[[[results resultsArray] objectAtIndex:i] objectAtIndex:j] value] integerValue]];
-            [cellText drawAtPoint:NSMakePoint(rowPosition.x+(j+1)*cellSize.width, rowPosition.y) withAttributes:font_attributes];
-        }
-        rowPosition.y += cellSize.height;
+            for (NSInteger j=0; j<totalCells; j++) {
+                cellText = [NSString stringWithFormat:@"%ld",[[[[[results resultsArray] objectAtIndex:i] objectAtIndex:j] value] integerValue]];
+                [cellText drawAtPoint:NSMakePoint(rowPosition.x+(j+1)*cellSize.width, rowPosition.y) withAttributes:font_attributes];
+            }
+            rowPosition.y += cellSize.height;
     }
     
     //Draw table lines
@@ -111,7 +111,7 @@
     NSPrintOperation *po = [NSPrintOperation currentOperation];
     NSPrintInfo *printInfo = [po printInfo];
     //Where can I draw? - I'm not sure I need this.
-    pageRect = [printInfo imageablePageBounds];
+    NSRect pageRect = [printInfo imageablePageBounds];
     rowsPerPage = (NSInteger)(pageRect.size.height/cellSize.height);
     columnsPerPage = (NSInteger)(pageRect.size.width/cellSize.width);
     
@@ -123,7 +123,7 @@
     if (([results numSubjects]+1) % rowsPerPage > 0) {
         pagesLong++;
     }
-    NSInteger numCols = [results numBlocks]+1;
+    NSInteger numCols = [results numBlocks] * [results numRepetitions] +1;
     if ([results numGroups]>0) {
         numCols++;
     }
@@ -139,11 +139,12 @@
 -(NSRect)rectForPage:(NSInteger)page{
     NSInteger pageRow = (page-1) % pagesLong;
     NSInteger pageCol = (page-1) / pagesLong;
+    NSRect pageRect;
     pageRect.size.width = columnsPerPage * cellSize.width;
     pageRect.size.height = rowsPerPage * cellSize.height;
     pageRect.origin.x = pageCol * columnsPerPage * cellSize.width + (pageCol>0)*MARGIN;
     pageRect.origin.y = pageRow * rowsPerPage *cellSize.height + (pageRow>0)*MARGIN;
-    
+    NSLog(@"pageRect: %lf, %lf, %lf, %lf",pageRect.origin.x,pageRect.origin.y,pageRect.size.width,pageRect.size.height);
     return pageRect;
 }
 

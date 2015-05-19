@@ -883,9 +883,6 @@
         <customObject id="420" customClass="NSFontManager"/>
         <customObject id="669" customClass="DRHDiceResults">
             <connections>
-                <outlet property="numBlocksField" destination="544" id="694"/>
-                <outlet property="numRepetitionsField" destination="fut-Pg-Xhi" id="YNq-Dn-U6u"/>
-                <outlet property="numSubjectsField" destination="551" id="681"/>
                 <outlet property="resultsView" destination="689" id="695"/>
             </connections>
         </customObject>
